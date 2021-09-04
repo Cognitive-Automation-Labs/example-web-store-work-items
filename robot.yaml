@@ -3,6 +3,8 @@ tasks:
     robotTaskName: Split orders file
   Process order:
     robotTaskName: Process order
+  Read order info:
+    robotTaskName: Read order info
 
 artifactsDir: output
 condaConfigFile: conda.yaml

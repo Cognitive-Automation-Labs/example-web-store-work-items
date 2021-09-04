@@ -17,14 +17,19 @@ Split orders file
     FOR    ${products}    IN    @{groups}
         Create output work item
         ${rows}=    Export table    ${products}
-        Set work item variable    products    ${rows}
+        Set work item variable    customer_products    ${rows}
         Save work item
     END
 
 *** Tasks ***
+Read order info
+    ${info}=    List work item variables
+    Log    Available variables: ${info}
+
+*** Tasks ***
 Process order
     [Documentation]    Order all products in input item
-    ${rows}=    Get work item variable    products
+    ${rows}=    Get work item variable    customer_products
     ${products}=    Create table    ${rows}
     Open Swag Labs
     Wait until keyword succeeds    3x    1s    Login
